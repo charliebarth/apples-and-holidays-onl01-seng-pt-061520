@@ -70,20 +70,12 @@ end
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
+  new_array = []
 holiday_hash.each do |season, data|
-    season.capitalize
     data.each do |day, value|
-      one = day.to_s
-      if one.include? "_"
-        one.gsub!("_", " ")
+      if value.include "BBQ"
+      new_array << value
       end
-      
-      two = one.split
-      two.each do |word|
-        word.capitalize!
-      end
-      days = two.join(" ")
-      puts "  #{days}: #{value.join(", ")}"
     end
   end
 end
